@@ -1,0 +1,29 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/auth.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+            <main>
+                <% if (errorMessage) { %>
+                    <div class="alert alert-danger centered message" role="alert">
+                        <%= errorMessage %>
+                    </div>
+                    <% } %>
+                        <form class="login-form" action="/login" method="POST">
+                            <div class="form-control">
+                                <label for="email">E-Mail</label>
+                                <input type="email" id="email" name="email" value="<%= oldInput.email %>">
+                            </div>
+                            <div class="form-control">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" value="<%= oldInput.password %>">
+                            </div>
+                            <button class="btn" type="submit">Submit</button>
+                        </form>
+                        <br>
+                        <p class="ml-2 centered login-form">
+                            Need An Account ? <a href="/signup">Sign Up Now</a>
+                        </p>
+            </main>
+            <%- include('../includes/end.ejs') %>
