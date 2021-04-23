@@ -5,7 +5,8 @@ const User = require('../models/user');
 
 exports.getHomePage = (req, res, next) => {
     res.render('auth/index', {
-        pageTitle: 'About Page'
+        pageTitle: 'Home Page',
+        isAuthenticated: req.session.isLoggedIn
     });
 };
 
@@ -19,6 +20,7 @@ exports.getLogin = (req, res, next) => {
     res.render('auth/login', {
         pageTitle: 'Login',
         errorMessage: message,
+        isAuthenticated: req.session.isLoggedIn,
         oldInput: {
             email: '',
             password: ''
@@ -37,6 +39,7 @@ exports.getSignup = (req, res, next) => {
     res.render('auth/signup', {
         pageTitle: 'Signup',
         errorMessage: message,
+        isAuthenticated: req.session.isLoggedIn,
         oldInput: {
             email: '',
             password: '',
@@ -145,3 +148,10 @@ exports.postLogin = (req, res, next) => {
             return next(error);
         });
 }
+
+exports.postLogout = (req, res, next) => {
+    req.session.destroy(err => {
+        console.log(err);
+        res.redirect('/');
+    });
+};

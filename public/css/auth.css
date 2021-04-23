@@ -72,3 +72,14 @@ form {
   border-radius: 3px;
   text-align: center;
 }
+
+.logout {  
+  margin: 0.5rem;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+  color: rgba(255,255,255,.55);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
