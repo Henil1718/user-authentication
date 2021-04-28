@@ -1,4 +1,4 @@
-# user-authentication
+# Internship Assignment
 
 ## Running the App
 
